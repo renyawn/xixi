@@ -1,28 +1,28 @@
 
- �ڶ����� Linux �ļ���Ŀ¼����̸�ʽ
-* �����¡�Linux ���ļ�Ȩ����Ŀ¼����
-** Linux ��ʹ���ߺ�Ⱥ��
+ 第二部分 Linux 文件、目录与磁盘格式
+* 第六章、Linux 的文件权限与目录配置
+** Linux 的使用者和群组
 
-ÿ���ļ�����������ʹ���ߡ�ӵ���ߣ�user����Ⱥ�飨group����������(other)��
-����͸������ʹ���ߣ���������Ȩ�ޣ�ӵ���߶��ļ���Ȩ�ޡ�Ⱥ����ļ���Ȩ�ޡ������˶��ļ���Ȩ�ޡ�
+每个文件，都有三类使用者。拥有者（user）、群组（group）、其他人(other)。
+可以透过三类使用者，设置三类权限：拥有者对文件的权限、群组对文件的权限、其他人对文件的权限。
 
-�����ʹ���� root����ͬ��ӵ���ߡ�Ⱥ�顢�����ˡ�root��Ȩ�����޴�
+特殊的使用者 root。不同于拥有者、群组、其他人。root的权限无限大。
 
-һ���ļ��������У�1��ӵ���ߣ�[1~N]��Ⱥ�飻N�������ˡ�Ҳ����˵��ֻ������ʹ����Ȩ�ޡ�������� root �Ļ���
+一个文件，可以有：1个拥有者；[1~N]个群组；N个其他人。也就是说，只有三类使用者权限。如果不算 root 的话。
 
-| �˺���Ϣ | /etc/passwd |
-| ������Ϣ | /etc/shadow |
-| Ⱥ����Ϣ | /etc/group  |
+| 账号信息 | /etc/passwd |
+| 密码信息 | /etc/shadow |
+| 群组信息 | /etc/group  |
 
-** Linux �ļ�Ȩ�޵ĸ���
+** Linux 文件权限的概念
 
-*** Linux �ļ�����
-�鿴�ļ�����
+*** Linux 文件属性
+查看文件属性
 #+BEGIN_SRC sh
-     �������������������� 
-     ��        ������ 
-     ��        ��
-     ��        ��
+     ┌───────── 
+     │        ┌── 
+     │        │
+     │        │
  -rw-r--r--   1   pi   pi   0   Oct 25 20:50  linux_study.org
  [    1   ]  [2][ 3 ][ 4 ][ 5 ][     6      ] [      7      ]     
 #+END_SRC
