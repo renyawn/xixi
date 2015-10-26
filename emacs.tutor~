@@ -1,9 +1,9 @@
 emacs 拼符 开关 ctrl + \
 
-显式当前文件字符编码：M-x describe-coding-system <RET> <RET>
-转换当前文件字符编码:C-x <RET> f coding <RET>Use coding system coding for saving or revisiting the visited file in the current buffer. 
+正确 显式当前文件字符编码：M-x describe-coding-system <RET> <RET>
+正确 转换当前文件字符编码:C-x <RET> f coding <RET>Use coding system coding for saving or revisiting the visited file in the current buffer. 
 
-默认编码设置:(setq default-buffer-file-coding-system 'utf-8)
+不知道 默认编码设置:(setq default-buffer-file-coding-system 'utf-8)
 (prefer-coding-system 'utf-8) 或 M-x prefer-coding-system <RET> utf-8. 效果一样
 
 
@@ -22,3 +22,20 @@ M-x recode-region <RET> right <RET> wrong <RET>Convert a region that was decoded
 4.改变当前buffer的编码：C-x <RET> f utf-8，（set-buffer-file-coding-system）
 
 5.设定下一步操作的编码格式：C-x <RET> c，（universal-coding-system-argument）
+
+
+
+
+使用快捷键：C-x RET f 然后可以用 TAB 显示所有存在的编码。
+
+这个命令会改变文件！如果只是出现乱码，并且不想改变文件本身，可以用命令
+
+C-x RET r ( M-x revert-buffer-with-coding-system)来用指定的编码重新读入这个文件。
+
+不改变当前文件编码，但将该文件另存为utf-8编码格式：
+
+C-x RET c(M-x universal-coding-system-argument ) utf-8
+
+
+
+org - mode 合理的缩进样式 M-x org-indent-mode

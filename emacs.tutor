@@ -35,3 +35,16 @@ C-x RET r ( M-x revert-buffer-with-coding-system)来用指定的编码重新读�
 不改变当前文件编码，但将该文件另存为utf-8编码格式：
 
 C-x RET c(M-x universal-coding-system-argument ) utf-8
+
+
+
+org - mode 合理的缩进样式 M-x org-indent-mode 改变 emacs 里的显式样式. html里没有变.
+如果想让某个文件默认用这种方式打开，可以在文件头部增加：
+
+    #+STARTUP: indent
+
+如果希望打开所有org文件都默认用这种方式，可以在.emacs中配置：
+
+    (setq org-startup-indented t)
+
+---

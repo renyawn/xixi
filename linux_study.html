@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>linux_study</title>
-<!-- 2015-10-25 周日 22:19 -->
+<!-- 2015-10-26 周一 20:13 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <style type="text/css">
@@ -147,6 +147,9 @@ for the JavaScript code in this tag.
 <li><a href="#sec-1-2">1.2. Linux 文件权限的概念</a>
 <ul>
 <li><a href="#sec-1-2-1">1.2.1. Linux 文件属性</a></li>
+<li><a href="#sec-1-2-2">1.2.2. 如何改变文件属性与权限: chgrp, chown, chmod</a></li>
+<li><a href="#sec-1-2-3">1.2.3. 目录与文件之权限意义</a></li>
+<li><a href="#sec-1-2-4">1.2.4. Linux文件种类与扩展名</a></li>
 </ul>
 </li>
 </ul>
@@ -164,16 +167,15 @@ for the JavaScript code in this tag.
 <h3 id="sec-1-1"><span class="section-number-3">1.1</span> Linux 的使用者和群组</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
-每个文件，都有三类使用者。拥有者（user）、群组（group）、其他人(other)。
-可以透过三类使用者，设置三类权限：拥有者对文件的权限、群组对文件的权限、其他人对文件的权限。
+每个文件(夹)都有三类使用者: <b>拥有者(user)</b> / <b>群组(group)</b> / <b>其他人(other)</b> .
 </p>
 
 <p>
-特殊的使用者 root。不同于拥有者、群组、其他人。root的权限无限大。
+可以透过三类使用者, 设置三类权限: 拥有者对文件的权限 / 群组对文件的权限 / 其他人对文件的权限.
 </p>
 
 <p>
-一个文件，可以有：1个拥有者；[1~N]个群组；N个其他人。也就是说，只有三类使用者权限。如果不算 root 的话。
+一个文件可以属于: 1个拥有者; [1~N]个群组; N个其他人.
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -201,6 +203,10 @@ for the JavaScript code in this tag.
 </tr>
 </tbody>
 </table>
+
+<p>
+特殊的使用者 root. 不属于拥有者/群组/其他人. root的权限无限大.
+</p>
 </div>
 </div>
 
@@ -211,25 +217,59 @@ for the JavaScript code in this tag.
 <h4 id="sec-1-2-1"><span class="section-number-4">1.2.1</span> Linux 文件属性</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <p>
-查看文件属性
+通过 ls -l 命令, 可以查看文件信息(属性).
 </p>
 <div class="org-src-container">
 
-<pre class="src src-sh">    ┌───────── 
-    │       ┌── 
-    │       │
-    │       │
--rw-r--r--  1   pi   pi   0   Oct 25 20:50  linux_study.org
-[    1    ][2][ 3 ][ 4 ][ 5 ][     6      ] [      7      ]
+<pre class="src src-sh">-rw-r--r--   1   pi   pi   0   Oct 25 20:50  linux_study.org
+[    1   ]  [2][ 3 ][ 4 ][ 5 ][     6      ] [      7      ]     
+
+| 1 | 档案类型\权限 
+| 2 | 连结数 
+| 3 | 档案拥有着
+| 4 | 档案所属群组 
+| 5 | 档案容量  
+| 6 | 档案最后被修改日期
+| 7 | 档案名
+</pre>
+</div>
+
+<p>
+当为[ d ]则
+当为[ - ]则
+若是[ l ]则
+若是[ b ]则
+若是[ c ]则
+</p>
+
+<p>
+有哪些档案类型?
+</p>
+<pre class="example">
+| - | 是文件
+| d | 是目录
+| l | 表示为连结档(link file)
+| b | 表示为装置文件里面的可供储存的接口设备(可随机存取装置)
+| c | 表示为装置文件里面的串行端口设备，例如键盘、鼠标(一次性读取装置)
 </pre>
 </div>
 </div>
+<div id="outline-container-sec-1-2-2" class="outline-4">
+<h4 id="sec-1-2-2"><span class="section-number-4">1.2.2</span> 如何改变文件属性与权限: chgrp, chown, chmod</h4>
+</div>
+
+<div id="outline-container-sec-1-2-3" class="outline-4">
+<h4 id="sec-1-2-3"><span class="section-number-4">1.2.3</span> 目录与文件之权限意义</h4>
+</div>
+
+<div id="outline-container-sec-1-2-4" class="outline-4">
+<h4 id="sec-1-2-4"><span class="section-number-4">1.2.4</span> Linux文件种类与扩展名</h4>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2015-10-25 周日 22:19</p>
+<p class="date">Created: 2015-10-26 周一 20:13</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
