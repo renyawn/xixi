@@ -1,0 +1,53 @@
+emacs 拼符 开关 ctrl + \
+
+* 文件编码问题:
+
+- 显式此文件编码: M-x describe-coding-system <RET> <RET>
+
+正确 转换当前文件字符编码:C-x <RET> f coding <RET>Use coding system coding for saving or revisiting the visited file in the current buffer. 
+
+不知道 默认编码设置:(setq default-buffer-file-coding-system 'utf-8)
+(prefer-coding-system 'utf-8) 或 M-x prefer-coding-system <RET> utf-8. 效果一样
+
+
+剩下的乱七八糟的待整理
+C-x <RET> c coding <RET>Specify coding system coding for the immediately following command. 
+C-x <RET> r coding <RET>Revisit the current file using the coding system coding. 
+M-x recode-region <RET> right <RET> wrong <RET>Convert a region that was decoded using coding system wrong, decoding it using coding system right instead.
+
+
+1.查看当前buffer的编码：M-x describe-coding-system
+
+2.列出所有编码：C-x <RET> r <TAB>
+
+3.以指定编码重读当前buffer：C-x <RET> r utf-8，（revert-buffer-with-coding-system）
+
+4.改变当前buffer的编码：C-x <RET> f utf-8，（set-buffer-file-coding-system）
+
+5.设定下一步操作的编码格式：C-x <RET> c，（universal-coding-system-argument）
+
+
+
+
+使用快捷键：C-x RET f 然后可以用 TAB 显示所有存在的编码。
+
+这个命令会改变文件！如果只是出现乱码，并且不想改变文件本身，可以用命令
+
+C-x RET r ( M-x revert-buffer-with-coding-system)来用指定的编码重新读入这个文件。
+
+不改变当前文件编码，但将该文件另存为utf-8编码格式：
+
+C-x RET c(M-x universal-coding-system-argument ) utf-8
+
+
+
+org - mode 合理的缩进样式 M-x org-indent-mode 改变 emacs 里的显式样式. html里没有变.
+如果想让某个文件默认用这种方式打开，可以在文件头部增加：
+
+    #+STARTUP: indent
+
+如果希望打开所有org文件都默认用这种方式，可以在.emacs中配置：
+
+    (setq org-startup-indented t)
+
+---
