@@ -1,10 +1,10 @@
-
+#!/usr/bin/python3
 import random
 import time
 
 def generate_num(max_dight):
     
-    part_int = random.choice(range(10**max_dight))
+    part_int = random.random()*10**max_dight
     part_float = random.random()*100 // 1 / 100
     
     return part_int + part_float
