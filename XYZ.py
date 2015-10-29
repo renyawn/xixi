@@ -170,29 +170,3 @@ def guess_game(how_many_player, how_many_winner):
     # print(nice_dict(winner_log))
 
 guess_game(20, 10)
-
-
-
-
-                    
-                    
-                    
-                    
-                    
-                
-            
-            
-                
-    
-
-    
-
-
-    
-
-    
-    
-    
-    
-    
-    
